@@ -7,7 +7,6 @@
     public class Main extends Sprite
     {
 		private var p:Orbiter;
-        public var play_pause:ControlButton = new ControlButton();
         public function Main()
 		
         {
@@ -23,7 +22,7 @@
         }
 		
 		
-		function onAddedToStage(event: Event): void {
+		function onAddedToStage(e: Event): void {
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			Init();
 		}
@@ -31,7 +30,7 @@
 		private function Init() :void {
 			stage.addEventListener(Event.RESIZE, resizeListener);
 			p = new Orbiter(250, 0, 0, 0, false);
-            play_pause.addEventListener(MouseEvent.CLICK, stopAnimation);
+            play_pause_text.addEventListener(MouseEvent.CLICK, AnimationController);
             addChild(p);
 			resizeListener();
 		}
@@ -41,7 +40,7 @@
 			p.y = stage.stageHeight/2;
 		}
 
-        function stopAnimation(e:MouseEvent):void {
+        function AnimationController(e:MouseEvent):void {
             if(stage.frameRate == 30) {
                 stage.frameRate = 0;
                 play_pause_text.text = "Play";
@@ -50,7 +49,6 @@
                 stage.frameRate = 30;
                 play_pause_text.text = "Pause";
             }
-            trace('Clicked');
         }
         
     }
