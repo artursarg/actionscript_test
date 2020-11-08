@@ -39,8 +39,9 @@
 		}
 
 
-		public function OrbiterClicked (e:MouseEvent) : void {
-			var child :Moon = new Moon(this,60,60,100, 2, true);
+		private function OrbiterClicked (event:MouseEvent) : void {
+			event.stopImmediatePropagation();
+			var child :Moon = new Moon(this,60,60,150, 2, true);
 			this.addChild(child);
 		}
 	}

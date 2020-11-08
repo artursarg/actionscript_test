@@ -54,7 +54,8 @@
             }
         }
 
-		public function SunClicked (e:MouseEvent) : void {
+		private function SunClicked (e:MouseEvent) : void {
+			e.stopImmediatePropagation();
 			var child :Orbiter = new Orbiter(p,100,100, 250 + 60*this.counter, 1, false);
 			this.addChild(child);
 			this.counter++;
