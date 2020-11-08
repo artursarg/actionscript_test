@@ -9,6 +9,7 @@
 		private var p:Orbiter;
         public var play_pause:ControlButton = new ControlButton();
         public function Main()
+		
         {
 			if(stage) 
 			{
