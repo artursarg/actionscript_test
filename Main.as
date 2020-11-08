@@ -6,7 +6,9 @@
 	
     public class Main extends Sprite
     {
-		private var p:Orbiter;
+		private var counter:int = 0;
+
+		private var p:Sun;
         public function Main()
 		
         {
@@ -29,7 +31,8 @@
 		
 		private function Init() :void {
 			stage.addEventListener(Event.RESIZE, resizeListener);
-			p = new Orbiter(250, 0, 0, 0, false);
+			p = new Sun;
+			p.addEventListener(MouseEvent.CLICK, SunClicked);
             play_pause_text.addEventListener(MouseEvent.CLICK, AnimationController);
             addChild(p);
 			resizeListener();
@@ -50,6 +53,17 @@
                 play_pause_text.text = "Pause";
             }
         }
+
+		public function SunClicked (e:MouseEvent) : void {
+			var child :Orbiter = new Orbiter(p,100,100, 250 + 60*this.counter, 1, false);
+			this.addChild(child);
+			this.counter++;
+		}
+
+		private function RadiusCounter(radius:int,numberOfPlanets:int):int {
+			var correctRadius:int = 0
+			return correctRadius;
+		}
         
     }
 }
