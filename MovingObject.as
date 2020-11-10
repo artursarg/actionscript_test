@@ -18,11 +18,11 @@ package
 		private var reverse :Boolean;
 		
 	
-		public function MovingObject(origin:Object, sizeWidth :int, sizeHeight :int, radius :int, speed :Number, reverse :Boolean)
+		public function MovingObject(origin:Object, sizeWidth :int, sizeHeight :int, radius :int, speed :Number, reverse :Boolean,angle:int)
 		{
 			super();
 			this.origin = origin;
-			this.angle  = 360;
+			this.angle  = angle;
 			this.sizeWidth = sizeWidth;
             this.sizeHeight = sizeHeight;
 			this.radius = radius;

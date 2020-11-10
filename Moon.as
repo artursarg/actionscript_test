@@ -9,9 +9,9 @@ package
 	public class Moon extends MovingObject
 	{
 		
-		public function Moon(origin:Object, sizeWidth :int, sizeHeight :int, radius :int, speed :Number, reverse :Boolean)
+		public function Moon(origin:Object, sizeWidth :int, sizeHeight :int, radius :int, speed :Number, reverse :Boolean,angle:int)
 		{
-			super(origin,sizeWidth,sizeHeight,radius,speed,reverse);
+			super(origin,sizeWidth,sizeHeight,radius,speed,reverse,angle);
 			if(stage) 
 			{
 				Init();
@@ -41,11 +41,8 @@ package
 
 		private function ClickHandler (e:MouseEvent) : void {
 			e.stopImmediatePropagation();
-			var sattelite:Sattelite = new Sattelite(this,40,40,70, 3, false);
+			var sattelite:Sattelite = new Sattelite(this,40,40,70 + Math.floor(Math.random() * 100), 3, false,360);
 			this.addChild(sattelite);
-			trace(typeof(sattelite) != typeof(this));
-			trace(typeof(sattelite));
-			trace(typeof(this));
 		}
 	}
 }

@@ -9,9 +9,9 @@ package
 	public class Sattelite extends MovingObject
 	{
 		
-		public function Sattelite(origin:Object, sizeWidth :int, sizeHeight :int, radius :int, speed :Number, reverse :Boolean)
+		public function Sattelite(origin:Object, sizeWidth :int, sizeHeight :int, radius :int, speed :Number, reverse :Boolean,angle:int)
 		{
-			super(origin,sizeWidth,sizeHeight,radius,speed,reverse);
+			super(origin,sizeWidth,sizeHeight,radius,speed,reverse,angle);
 			if(stage) 
 			{
 				Init();

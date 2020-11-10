@@ -28,7 +28,7 @@
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			Init();
 		}
-		
+		// Getting sure that set size and new project add is initializing after addedToStage
 		private function Init() :void {
 			stage.addEventListener(Event.RESIZE, resizeListener);
 			p = new Sun;
@@ -38,11 +38,13 @@
 			resizeListener();
 		}
 		
+		//Centering Sun
 		function resizeListener(e:Event = null):void {
 			p.x = stage.stageWidth/2;
 			p.y = stage.stageHeight/2;
 		}
 
+		//Animation play/pause controller
         function AnimationController(e:MouseEvent):void {
             if(stage.frameRate == 30) {
                 stage.frameRate = 0;
@@ -54,17 +56,12 @@
             }
         }
 
+		//Creating planet object
 		private function SunClicked (e:MouseEvent) : void {
 			e.stopImmediatePropagation();
-			var child :Orbiter = new Orbiter(p,100,100, 250 + 60*this.counter, 1, false);
+			var child :Orbiter = new Orbiter(p,100,100, 250 +Math.floor(Math.random()*100), 1, false,360/this.counter);
 			this.addChild(child);
 			this.counter++;
 		}
-
-		private function RadiusCounter(radius:int,numberOfPlanets:int):int {
-			var correctRadius:int = 0
-			return correctRadius;
-		}
-        
     }
 }
