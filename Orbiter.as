@@ -8,6 +8,7 @@
 
 	public class Orbiter extends MovingObject
 	{
+		private var counter:int = 0;
 		public function Orbiter(origin:Object, sizeWidth :int, sizeHeight :int, radius :int, speed :Number, reverse :Boolean,angle:int)
 		{
 			super(origin,sizeWidth,sizeHeight,radius,speed,reverse,angle);
@@ -38,11 +39,12 @@
 			this.height = sizeHeight;
 		}
 
-
+		//handling mouse click
 		private function OrbiterClicked (event:MouseEvent) : void {
 			event.stopImmediatePropagation();
-			var child :Moon = new Moon(this,60,60,150 + Math.floor(Math.random() * 100), 2, true,0);
+			var child :Moon = new Moon(this,60,60,150 + Math.floor(Math.random() * 100), 2, true, 360/this.counter);
 			this.addChild(child);
+			this.counter++;
 		}
 	}
 }
